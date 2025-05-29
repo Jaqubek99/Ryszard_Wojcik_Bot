@@ -1,0 +1,19 @@
+{
+  "name": "ryszard_wojcik",
+  "version": "1.0.0",
+  "description": "bocik na dc",
+  "main": "main.js",
+  "scripts": {
+    "start": "cross-env node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jaqubek99/Ryszard_Wojcik_Bot.git"
+  },
+  "author": "Poohatek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jaqubek99/Ryszard_Wojcik_Bot/issues"
+  },
+  "homepage": "https://github.com/Jaqubek99/Ryszard_Wojcik_Bot#readme"
+}
