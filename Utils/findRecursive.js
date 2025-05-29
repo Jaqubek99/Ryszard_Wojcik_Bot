@@ -8,25 +8,29 @@ import path from "path";
  * @returns {Promise<string|null>} - Full path to found folder/file, or null if not found
  */
 export async function findRecursive(targetName, baseDir = process.cwd()) {
-  const entries = await readdir(baseDir);
+  try {
+    const entries = await readdir(baseDir);
 
-  for (const entry of entries) {
-    const fullPath = path.join(baseDir, entry);
+    for (const entry of entries) {
+      const fullPath = path.join(baseDir, entry);
 
-    if (entry === targetName) {
-      console.log(`\n✅ Found: ${fullPath}`);
-      return fullPath;
+      if (entry === targetName) {
+        console.log(`\n✅ Found: ${fullPath}`);
+        return fullPath;
+      }
+
+      // RECURSIVING ONLY WHEN IT'S A DIRECTORY
+      try {
+        const entryStat = await stat(fullPath);
+        if (entryStat.isDirectory()) {
+          const result = await findRecursive(targetName, fullPath);
+          if (result) return result;
+        }
+      } catch (err) {}
     }
 
-    // RECURSIVING ONLY WHEN IT'S A DIRECTORY
-    try {
-      const entryStat = await stat(fullPath);
-      if (entryStat.isDirectory()) {
-        const result = await findRecursive(targetName, fullPath);
-        if (result) return result;
-      }
-    } catch (err) {}
+    return "nie znaleziono";
+  } catch (error) {
+    console.log(error);
   }
-
-  return null;
 }
