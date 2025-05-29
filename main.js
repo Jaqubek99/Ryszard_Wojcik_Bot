@@ -27,8 +27,7 @@ client.login(process.env.TOKEN);
 new CommandKit({
   client,
   devGuildIds: [process.env.DEV_SERVER_ID],
-  //devRoleIds: IDs,
-  eventsPath: path.resolve(__dirname, "events"),
-  commandsPath: path.resolve(__dirname, "commands"),
-  utilsPath: path.resolve(__dirname, "utils"),
+  eventsPath: path.resolve(__dirname, "Events"),
+  commandsPath: path.resolve(__dirname, "Commands"),
+  utilsPath: path.resolve(__dirname, "Utils"),
 });
