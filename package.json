@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/Jaqubek99/Ryszard_Wojcik_Bot#readme",
   "dependencies": {
-    "commandkit": "^0.1.10"
+    "commandkit": "^0.1.10",
+    "fs": "^0.0.1-security",
+    "mongoose": "^8.15.1",
+    "ryszard_wojcik": "file:",
+    "yt-dlp-exec": "^1.0.2"
   }
 }
