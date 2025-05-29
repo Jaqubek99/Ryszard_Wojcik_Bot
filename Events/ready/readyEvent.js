@@ -1,3 +1,5 @@
+import mongoose from "mongoose";
+
 export default async (client) => {
   try {
     const activeGuildList = client.guilds.cache;
@@ -20,6 +22,21 @@ export default async (client) => {
         },
       ],
     });
+
+    // Logging into database
+    const databasepath = process.env.DATABASE_PATH;
+    await mongoose
+      .connect(databasepath)
+      .then(() => {
+        console.log("\x1b[34m%s\x1b[0m", `✅ Connected to MongoDB`);
+      })
+      .catch((error) =>
+        console.error(
+          "\x1b[34m%s\x1b[0m",
+          "❌ MongoDB connection error:",
+          error
+        )
+      );
   } catch (error) {
     console.log(`Bot napotkał problem przy startowaniu | ${error}`);
   }
