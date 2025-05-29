@@ -6,18 +6,19 @@ export default async (client) => {
     activeGuildList.forEach((guild) => {
       console.log(
         "\x1b[32m%s\x1b[0m",
-        `🤖 ${client.user.tag} bot started  on ${guild.name} server`
+        `🤖 ${client.user.tag} bot started on ${guild.name} server`
       );
     });
 
+    // Setting DND presence
     client.user.setPresence({
-      activies: [
+      status: "dnd",
+      activities: [
         {
-          name: "5 telefonów w ciagu minuty",
+          name: "5 telefony w ciągu minuty",
           type: 2,
         },
       ],
-      status: "dnd,",
     });
   } catch (error) {
     console.log(`Bot napotkał problem przy startowaniu | ${error}`);

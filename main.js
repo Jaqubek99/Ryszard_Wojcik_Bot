@@ -9,10 +9,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Logging in to Discord API
-dotenv.config({
-  path: path.resolve(__dirname, `.env`),
-});
-
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -22,6 +18,8 @@ const client = new Client({
   ],
   partials: [Partials.Message, Partials.Channel],
 });
+
+dotenv.config();
 client.login(process.env.TOKEN);
 
 new CommandKit({

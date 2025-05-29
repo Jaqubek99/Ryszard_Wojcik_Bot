@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "bocik na dc",
   "main": "main.js",
+  "type": "module",
   "scripts": {
     "start": "cross-env node main.js"
   },
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Jaqubek99/Ryszard_Wojcik_Bot/issues"
   },
-  "homepage": "https://github.com/Jaqubek99/Ryszard_Wojcik_Bot#readme"
+  "homepage": "https://github.com/Jaqubek99/Ryszard_Wojcik_Bot#readme",
+  "dependencies": {
+    "commandkit": "^0.1.10"
+  }
 }
